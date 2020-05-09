@@ -1,4 +1,4 @@
-package com.projectzyx.api.admin;
+package com.projectzyx.api.page;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +11,9 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
 @Configuration
-public class AdminRouter {
+public class PageRouter {
   @Bean
-  public RouterFunction<ServerResponse> adminRoute(AdminHandler adminHandler) {
-    return RouterFunctions.route(GET("/api/admin/heartbeat").and(accept(TEXT_PLAIN)), adminHandler::checkHeartbeat);
+  public RouterFunction<ServerResponse> pageRoute(PageHandler pageHandler) {
+    return RouterFunctions.route(GET("/").and(accept(TEXT_PLAIN)), pageHandler::index);
   }
 }

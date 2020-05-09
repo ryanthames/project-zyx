@@ -21,7 +21,7 @@ public class AdminTest {
   public void checkHeartbeat() {
     this.client
         .get()
-        .uri("/api/heartbeat")
+        .uri("/api/admin/heartbeat")
         .accept(MediaType.TEXT_PLAIN)
         .exchange()
         .expectStatus().isOk();
